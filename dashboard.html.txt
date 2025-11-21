@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><title>User Dashboard</title>
+<style>
+  body{font-family:Poppins;background:#f0f2f5;text-align:center;padding:80px;}
+  h1{font-size:3rem;color:#333;}
+  button{padding:15px 30px;font-size:18px;background:#e74c3c;color:white;border:none;border-radius:12px;cursor:pointer;}
+</style>
+</head>
+<body>
+  <h1>नमस्ते यूज़र</h1>
+  <p>आप सफलतापूर्वक लॉगिन हो चुके हैं!</p>
+  <button onclick="firebase.auth().signOut().then(()=>location.href='index.html')">
+    लॉगआउट करें
+  </button>
+</body>
+</html>
