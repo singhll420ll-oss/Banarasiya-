@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | MyApp</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="login-box">
+      <h1>नमस्ते</h1>
+      <p class="subtitle">अपना अकाउंट चुनें</p>
+
+      <button class="google-btn" onclick="googleLogin()">
+        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="G">
+        Google से लॉगिन करें
+      </button>
+
+      <div class="divider"><span>या</span></div>
+
+      <input type="email" id="email" placeholder="ईमेल" required />
+      <input type="password" id="password" placeholder="पासवर्ड" required />
+
+      <button class="primary-btn" onclick="emailLogin()">लॉगिन करें</button>
+
+      <p class="signup-text">
+        अकाउंट नहीं है? <span onclick="signUp()" class="link">साइन अप करें</span>
+      </p>
+
+      <div id="message"></div>
+    </div>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
