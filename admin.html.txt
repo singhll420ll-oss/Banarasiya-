@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head><title>Admin Panel</title>
+<style>
+  body{font-family:Poppins;background:#16213e;color:white;text-align:center;padding:80px;}
+  h1{font-size:3.5rem;color:#00ff88;}
+  p{font-size:1.3rem;}
+  button{padding:15px 30px;font-size:18px;background:#ff0066;color:white;border:none;border-radius:12px;cursor:pointer;margin-top:30px;}
+</style>
+</head>
+<body>
+  <h1>ADMIN PANEL</h1>
+  <p>सिर्फ तुम ही यहाँ आ सकते हो singh.ll420ll@gmail.com</p>
+  <button onclick="firebase.auth().signOut().then(()=>location.href='index.html')">
+    लॉगआउट करें
+  </button>
+</body>
+</html>
