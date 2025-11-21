@@ -1,0 +1,60 @@
+const firebaseConfig = {
+  apiKey: "AIzaSyDxN3zhZ99BuEYpwc6qJjYn_6YAec",
+  authDomain: "login-page-ddf7c.firebaseapp.com",
+  projectId: "login-page-ddf7c",
+  storageBucket: "login-page-ddf7c.appspot.com",
+  messagingSenderId: "184596455052",
+  appId: "1:184596455052:web:cccd64ff68b9ee45a9"
+};
+
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+
+// Google Login
+function googleLogin() {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  auth.signInWithPopup(provider)
+    .then(result => {
+      const user = result.user;
+      showMessage("लॉगिन सफल! नमस्ते " + user.displayName, "success");
+      setTimeout(() => {
+        if (user.email === "singh.ll420ll@gmail.com") {
+          location.href = "admin.html";
+        } else {
+          location.href = "dashboard.html";
+        }
+      }, 1500);
+    })
+    .catch(err => showMessage(err.message, "error"));
+}
+
+// Email-Password Login
+function emailLogin() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  auth.signInWithEmailAndPassword(email, password)
+    .then(() => {
+      showMessage("लॉगिन सफल!", "success");
+      setTimeout(() => {
+        if (email === "singh.ll420ll@gmail.com") location.href = "admin.html";
+        else location.href = "dashboard.html";
+      }, 1500);
+    })
+    .catch(err => showMessage("गलत ईमेल या पासवर्ड", "error"));
+}
+
+// Sign Up
+function signUp() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  auth.createUserWithEmailAndPassword(email, password)
+    .then(() => showMessage("अकाउंट बन गया! अब लॉगिन करें", "success"))
+    .catch(err => showMessage(err.message, "error"));
+}
+
+function showMessage(text, type) {
+  const msg = document.getElementById("message");
+  msg.innerHTML = text;
+  msg.style.background = type === "success" ? "#d4edda" : "#f8d7da";
+  msg.style.color = type === "success" ? "#155724" : "#721c24";
+}
